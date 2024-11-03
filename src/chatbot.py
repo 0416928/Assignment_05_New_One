@@ -42,6 +42,28 @@ def get_account() -> int:
 
     return user_input
 
+def get_amount() -> float:
+    """
+    This function is prompt the user to enter a valid amount and return it 
+    as a float.
+    This function is also try using try/catch block to catch an exception.
+
+    Returns:
+        float: returns a valid transaction amount
+
+    Exceptions:
+        ValueError: raise an error message when non-numeric amount entered or amount 
+        is zero or negative.
+    """
+    try:
+        user_transaction_amount_input = float(input("Enter the transaction amount: "))
+        # if user_transaction_amount_input > 0 :
+        #      return user_transaction_amount_input
+    except ValueError:
+          raise ValueError("Invalid amount. Amount must be numeric.")
+    if user_transaction_amount_input <= 0:
+           raise ValueError("Invalid amount. Please enter a positive number.")
+    return user_transaction_amount_input
 
 ## GIVEN CHATBOT FUNCTION
 ## REQUIRES REVISION
