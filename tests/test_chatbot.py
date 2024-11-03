@@ -6,7 +6,7 @@ Usage: Testing the functions.
 """
 
 import unittest
-from src.chatbot import get_account, get_amount
+from src.chatbot import get_account, get_amount, get_balance
 from src.chatbot import VALID_TASKS, ACCOUNTS
 from unittest.mock import patch
 
@@ -75,3 +75,22 @@ class TestChatbot(unittest.TestCase):
                 get_amount()
                 self.assertEqual(expected,str(context.exception))
 
+    def test_get_balance_valid_input(self):
+        # arrange
+            account_number = 123456
+            ACCOUNTS[account_number]["balance"] = 1000.0
+            expected = f"Your current balance for account {account_number} is ${ACCOUNTS[account_number]["balance"]:,.2f}."
+        # act
+            actual = get_balance(123456)
+
+        # assert
+            self.assertEqual(expected,actual)
+
+    def test_get_balance_invalid_input(self):
+        # arrange
+        expected = "Account number does not exist."
+
+        # act and assert
+        with self.assertRaises(ValueError) as context:
+            get_balance(112233)
+            self.assertEqual(expected, str(context.exception))

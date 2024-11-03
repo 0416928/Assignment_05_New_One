@@ -65,6 +65,20 @@ def get_amount() -> float:
            raise ValueError("Invalid amount. Please enter a positive number.")
     return user_transaction_amount_input
 
+def get_balance(account : int) -> str:
+      """
+      This function is retrieving the balance of a specified account.
+      
+      Args:
+          account (int): The account number
+      Returns:
+          str: Text with a message include account number and balance.
+          Exceptions: Raise ValueError if account number does not exist.
+      """
+      if account not in ACCOUNTS:
+           raise ValueError("Account number does not exist.")
+      return f"Your current balance for account {account} is ${ACCOUNTS[account]["balance"]:,.2f}."
+
 ## GIVEN CHATBOT FUNCTION
 ## REQUIRES REVISION
 """
