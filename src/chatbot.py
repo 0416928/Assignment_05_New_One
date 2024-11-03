@@ -120,7 +120,7 @@ def user_selection() -> str:
      return user_selection
 ## GIVEN CHATBOT FUNCTION
 ## REQUIRES REVISION
-"""
+
 def chatbot():
     '''
     The main program.  Uses the functionality of the functions:
@@ -139,6 +139,7 @@ def chatbot():
             ## CALL THE user_selection FUNCTION HERE 
             ## CAPTURING THE RESULTS IN A VARIABLE CALLED
             ## selection:
+            selection = user_selection()
 
             if selection != "exit":
                 
@@ -149,6 +150,7 @@ def chatbot():
                         ## CALL THE get_account FUNCTION HERE
                         ## CAPTURING THE RESULTS IN A VARIABLE 
                         ## CALLED account:
+                        account = get_account()
 
                         valid_account = True
                     except ValueError as e:
@@ -158,6 +160,7 @@ def chatbot():
                         ## CALL THE get_balance FUNCTION HERE
                         ## PASSING THE account VARIABLE DEFINED 
                         ## ABOVE, AND PRINT THE RESULTS:
+                        print(get_balance(account))
 
                 else:
 
@@ -168,6 +171,7 @@ def chatbot():
                             ## CALL THE get_amount FUNCTION HERE
                             ## AND CAPTURE THE RESULTS IN A VARIABLE 
                             ## CALLED amount:
+                            amount = get_amount()
 
 
                             valid_amount = True
@@ -177,6 +181,7 @@ def chatbot():
                 ## CALL THE make_deposit FUNCTION HERE PASSING THE 
                 ## VARIABLES account AND amount DEFINED ABOVE AND 
                 ## PRINT THE RESULTS:
+                    print(make_deposit(account, amount))
 
 
             else:
@@ -187,9 +192,8 @@ def chatbot():
             print(e)
 
     print("Thank you for banking with PiXELL River Financial.")
-"""
+
     
-"""
 if __name__ == "__main__":
     chatbot()
-"""
+
