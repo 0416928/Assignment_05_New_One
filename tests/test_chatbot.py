@@ -6,7 +6,7 @@ Usage: Testing the functions.
 """
 
 import unittest
-from src.chatbot import get_account, get_amount, get_balance, make_deposit
+from src.chatbot import get_account, get_amount, get_balance, make_deposit, user_selection
 from src.chatbot import VALID_TASKS, ACCOUNTS
 from unittest.mock import patch
 
@@ -131,3 +131,32 @@ class TestChatbot(unittest.TestCase):
             make_deposit (123456,-50.01)
             self.assertEqual(expected,str(context.exception))
 
+    def test_user_selection_lowercase(self):
+        # arrange
+        with patch('builtins.input') as mock_input:
+            mock_input.side_effect = ["balance"]
+            expected = "balance"
+        # act 
+            actual = user_selection()
+        # assert
+            self.assertEqual(expected,actual)
+
+    def test_user_selection_uppercase(self):
+        # arrange
+        with patch('builtins.input') as mock_input:
+            mock_input.side_effect = ["DEPOSIT"]
+            expected = "deposit"
+        # act 
+            actual = user_selection()
+        # assert
+            self.assertEqual(expected,actual) 
+
+    def test_user_selection_invalid(self):
+        # arrange
+        with patch('builtins.input') as mock_input:
+            mock_input.side_effect = ["invalid_selection"]
+            expected = "Invalid task. Please choose balance, deposit, or exit." 
+        # act and assert
+            with self.assertRaises(ValueError) as context:
+             user_selection()
+             self.assertEqual(expected,str(context.exception))

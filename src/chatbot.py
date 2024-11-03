@@ -103,6 +103,21 @@ def make_deposit(account: int, amount: float) -> str:
      ACCOUNTS[account]["balance"] = amount + ACCOUNTS[account]["balance"]
      return f"You have made a deposit of ${amount:,.2f} to account {account}."
  
+def user_selection() -> str:
+     """
+     This function is prompting the user for their selection from the given text.
+     Returns:
+         str: Returns a valid user selection.
+     Exceptions:
+         ValueError if invalid data entered which is not included in VALID_tasks.
+     
+     """
+     user_selection = input("What would you like to do (balance/deposit/exit)?")
+     user_selection = user_selection.lower()
+     if user_selection not in VALID_TASKS:
+          raise ValueError("Invalid task. Please choose balance, deposit, or exit.")
+
+     return user_selection
 ## GIVEN CHATBOT FUNCTION
 ## REQUIRES REVISION
 """
