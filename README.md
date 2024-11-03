@@ -20,11 +20,7 @@ Gaganpreet Kaur
 ### 1. Identify any challenges or issues you encountered while writing your functions
 
 -
--
--
 
 ### 2. Discuss the benefits and challenges of developing and using unit tests
 
--
--
 -

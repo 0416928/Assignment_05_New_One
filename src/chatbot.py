@@ -2,8 +2,8 @@
 Description: Chatbot application.  Allows user to perform balance 
 inquiries and make deposits to their accounts.
 Author: ACE Department
-Modified by: {Student Name}
-Date: 2023-10-15
+Modified by: Gaganpreet Kaur
+Date: 2024-11-03
 Usage: From the console: python src/chatbot.py
 """
 
@@ -32,7 +32,7 @@ def get_account() -> int:
         number does not exist.
         """
     try:
-        user_input = int(input("Please enter your account number:"))
+        user_input = int(input("Please enter your account number: "))
 
     except ValueError:
         raise ValueError("Account number must be a whole number.")
@@ -112,7 +112,7 @@ def user_selection() -> str:
          ValueError if invalid data entered which is not included in VALID_tasks.
      
      """
-     user_selection = input("What would you like to do (balance/deposit/exit)?")
+     user_selection = input("What would you like to do (balance/deposit/exit)? ")
      user_selection = user_selection.lower()
      if user_selection not in VALID_TASKS:
           raise ValueError("Invalid task. Please choose balance, deposit, or exit.")
