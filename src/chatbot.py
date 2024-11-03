@@ -17,6 +17,32 @@ VALID_TASKS = {"balance", "deposit", "exit"}
 
 ## CODE REQUIRED FUNCTIONS STARTING HERE:
 
+def get_account() -> int:
+
+    """
+    This function is prompt the user for the account number and returns it 
+    as an integer.
+    This function is also try using try/catch block to catch an exception.
+        
+    Returns:
+        int: returns a valid account number
+
+    Exceptions:
+        ValueError: raise an error message when non-numeric data entered or account
+        number does not exist.
+        """
+    try:
+        user_input = int(input("Please enter your account number:"))
+
+    except ValueError:
+        raise ValueError("Account number must be a whole number.")
+
+    if user_input not in ACCOUNTS:
+        raise ValueError("Account number entered does not exist.")
+
+    return user_input
+
+
 ## GIVEN CHATBOT FUNCTION
 ## REQUIRES REVISION
 """
